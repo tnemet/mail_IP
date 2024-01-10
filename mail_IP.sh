@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# Define the start and end times in minutes after midnight
+# Define the start and end times in minutes since midnight
 # it has to be in range because script is called after every wake from sleep
 
-start_minutes=510
-end_minutes=800
+start_minutes=300
+end_minutes=303
 
 # Get the current time in HH:MM format
 
         next_day=$(date +%Y%m%d -d "$DATE + 1 day")
-        hour=40000
+        hour=50000
         wake_time=$next_day"0"$hour
 
 
@@ -24,6 +24,6 @@ if [ "$current_minutes" -ge "$start_minutes" -a "$current_minutes" -lt "$end_min
     echo "Subject: IP_adress" > mail.txt
     curl ifconfig.me >> mail.txt
     cat mail.txt | msmtp XXXXX@domain.com
-    sudo rtcwake -m no --date $wake_time
+    sudo rtcwake -m mem --date $wake_time
     #echo "wakeup time is: $wake_time"
 fi
