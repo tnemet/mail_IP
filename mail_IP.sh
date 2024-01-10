@@ -16,14 +16,12 @@ end_minutes=303
 # Convert time strings to minutes since midnight for comparison
 
 current_minutes=$(date +"%H:%M" | awk -F: '{ print ($1 * 60) + $2}')
-echo "current minutes: $current_minutes"
-echo "next_day: $next_day"
-echo "wake: $wake_time"
+
 if [ "$current_minutes" -ge "$start_minutes" -a "$current_minutes" -lt "$end_minutes" ]; then
     
     echo "Subject: IP_adress" > mail.txt
     curl ifconfig.me >> mail.txt
     cat mail.txt | msmtp XXXXX@domain.com
     sudo rtcwake -m mem --date $wake_time
-    #echo "wakeup time is: $wake_time"
+
 fi
