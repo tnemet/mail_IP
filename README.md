@@ -4,5 +4,5 @@ If there is manual wakeup pre) case will setup wakeup alarm for next day because
 
 Add rtcwake to nopass sudoers, configure msmtp to your needs (place config in /etc/msmtp file so root can access it), place 00mail_IP_at_wakeup.sh in /usr/lib/systemd/system-sleep/ and you good to go.
 
-Will add IP checking so it doesn't send same adress multiple times.
+# -added - Will add IP checking so it doesn't send same adress multiple times.
 
