@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 case $1/$2 in
   pre/*)
         next_day=$(date +%Y%m%d -d "$DATE + 1 day")
@@ -7,7 +7,7 @@ case $1/$2 in
         sudo rtcwake -m mem --date $wake_time
     ;;
   post/*)
-    bash path_to/mail_IP.sh
+    source /path_to/mail_IP.sh
     ;;
 esac
 
