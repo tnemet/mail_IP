@@ -5,7 +5,7 @@
     
     if [ "$current_IP" -ne "$last_IP" ]; then 
     
-    echo "Subject: IP_adress" > /path to/mail.txt
+    echo "Subject: IP_adress" > /path to/mail.txt # could be done with sed 2d
     curl ifconfig.me >> /path to/mail.txt              
     cat /path to/mail.txt | msmtp user@domain.com
     
